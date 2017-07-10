@@ -1,4 +1,4 @@
-# main.py -- put your code here!
+#This is basic code to connect wipy to wifi network and disable HeartBeat led from blinking
 import machine
 import pycom
 pycom.heartbeat(False)
