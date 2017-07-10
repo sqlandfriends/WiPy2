@@ -3,6 +3,7 @@ import machine
 import pycom
 pycom.heartbeat(False)
 from network import WLAN
+from os import sd #import module thats needed to start microSD card if user have one
 wlan = WLAN(mode=WLAN.STA)
 nets = wlan.scan()
 for net in nets:
@@ -15,3 +16,7 @@ for net in nets:
             machine.idle() # save power while waiting
         print('WLAN connection succeeded!')
         break
+#code below mounts SD card thanks to one of imports
+#  IMPORTANT: card must be FAT formatted BEFROE trying to use it!!!!!
+sd = SD()
+os.mount(sd, '/sd')
